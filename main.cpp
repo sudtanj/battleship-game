@@ -70,5 +70,41 @@ int main(){
         }
         cout<<endl;
     }
+    int colTemp=0,rowTarget=0,colTarget=0,totalDestroy=0;
+    while(true){
+        if(totalDestroy==3){
+            cout<<"Human Win"<<endl;
+            break;
+        }
+        cout<<"Coloumn"<<endl;
+        cin>>colTarget;
+        cout<<"Row"<<endl;
+        cin>>rowTarget;
+        
+        colTarget--;
+        rowTarget--;
+        
+        if(map[rowTarget][colTarget]==2){
+            totalDestroy++;
+            colTemp=colTarget;
+            while(map[rowTarget][colTemp]!=0){
+                map[rowTarget][colTemp]=0;
+                colTemp++;
+            }
+            cout<<colTarget;
+            while(map[rowTarget][colTarget]!=0){
+                map[rowTarget][colTarget]=0;
+                colTarget--;
+            }
+            cout<<"You destroy a ship"<<endl;
+        }
+        
+    for(int i=0;i<10;i++){
+        for(int j=0;j<10;j++){
+            cout<<map[i][j]<< " ";
+        }
+        cout<<endl;
+    }
+    }
     return 0;
 }
